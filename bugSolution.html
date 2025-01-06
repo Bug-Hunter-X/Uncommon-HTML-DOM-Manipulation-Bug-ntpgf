@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      const myDiv = document.getElementById("myDiv");
+      myDiv.innerHTML = "";
+
+      // Solution: Check if the child element exists before accessing it
+      const child = myDiv.querySelector('*'); // Selects the first child element
+      if (child) {
+        child.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
