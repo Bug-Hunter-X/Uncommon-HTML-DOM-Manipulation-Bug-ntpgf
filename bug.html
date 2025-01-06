@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      document.getElementById("myDiv").innerHTML = ""; // Clears the div content
+      // The bug is that the following line throws an error because it tries to access
+      // a child element that no longer exists after clearing the div's content.
+      document.getElementById("myDiv").children[0].style.display = "none"; 
+    }
+  </script>
+</body>
+</html>
